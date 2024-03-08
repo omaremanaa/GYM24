@@ -13,6 +13,7 @@
   "dependencies": {
     "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
+    "@formatjs/intl": "^2.10.0",
     "@mui/icons-material": "^5.15.11",
     "@mui/material": "^5.15.11",
     "@mui/styles": "^5.15.11",
@@ -21,6 +22,7 @@
     "framer-motion": "^11.0.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-intl": "^6.6.2",
     "react-reveal": "^1.2.2",
     "react-router-dom": "^6.22.1",
     "react-scroll": "^1.9.0"
