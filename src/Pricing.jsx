@@ -10,42 +10,117 @@ import Divider from '@mui/material/Divider';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
-import CheckCircleRoundedIcon from '@mui/icons-material/CheckCircleRounded';
+import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import UpIcon from '@mui/icons-material/KeyboardArrowUp';
 import { Fab } from '@mui/material';
+import { FormattedMessage, useIntl } from 'react-intl';
 
 const tiers = [
   {
-    title: 'Basic',
-    price: '80',
+    title: 'Pass Trial',
+    titleId: 'Basic',
+    price: '0',
     description: [
-      'Access to cardio and strength training areas',
-      'Group fitness classes included',
-      'Limited access to premium facilities and amenities',
-      'No personal training sessions included',
+      'Access to the gym from 8:00 to 14:00',
+      'The trainer on duty will introduce you to the gym',
     ],
-
+    descriptionId: [
+      'AccessToCardioAndStrengthTrainingAreas',
+      'GroupFitnessClassesIncluded',
+      'LimitedAccessToPremiumFacilitiesAndAmenities',
+      'NoPersonalTrainingSessionsIncluded',
+    ],
   },
   {
-    title: 'Premium',
-    subheader: 'Recommended',
-    price: '200',
+    title: `Pass 'Easy Start'`,
+    titleId: 'Basic',
+    price: '119',
     description: [
-        'Full access to all gym facilities and amenities',
-        'Unlimited access to group fitness classes',
-        'Personalized workout plans',
-        'Access to premium equipment and training zones',
-        '2 complimentary personal training sessions per month',
+      'Visit without restrictions 24/7',
+      'Individual training program',
+      'Access to the VTRAINER application',
+      'Trainer support',
     ],
-
+    descriptionId: [
+      'AccessToCardioAndStrengthTrainingAreas',
+      'GroupFitnessClassesIncluded',
+      'LimitedAccessToPremiumFacilitiesAndAmenities',
+      'NoPersonalTrainingSessionsIncluded',
+    ],
   },
-  
+  {
+    title: `Pass 'Free Time'`,
+    titleId: 'Basic',
+    price: '49',
+    description: [
+      'The entrance time from the gym is from 14:00 to 16:00',
+      'Without suspension of gym membership',
+      'The trainer on duty will introduce you to the gym',
+    ],
+    descriptionId: [
+      'AccessToCardioAndStrengthTrainingAreas',
+      'GroupFitnessClassesIncluded',
+      'LimitedAccessToPremiumFacilitiesAndAmenities',
+      'NoPersonalTrainingSessionsIncluded',
+    ],
+  },
+  {
+    title: `Pass '1 Month 24/7'`,
+    titleId: 'Basic',
+    price: '85',
+    description: [
+      'Visit without restrictions 24/7',
+      'The trainer on duty will introduce you to the gym',
+    ],
+    descriptionId: [
+      'AccessToCardioAndStrengthTrainingAreas',
+      'GroupFitnessClassesIncluded',
+      'LimitedAccessToPremiumFacilitiesAndAmenities',
+      'NoPersonalTrainingSessionsIncluded',
+    ],
+  },
+  {
+    title: `Pass 'In Shape (AM)'`,
+    titleId: 'Basic',
+    price: '80',
+    description: [
+      'Training in mini-groups until 14:00',
+      'Without suspension of gym membership',
+      'Classes with a trainer in a mini-group 3 times a week',
+      'Trainer Support',
+    ],
+    descriptionId: [
+      'AccessToCardioAndStrengthTrainingAreas',
+      'GroupFitnessClassesIncluded',
+      'LimitedAccessToPremiumFacilitiesAndAmenities',
+      'NoPersonalTrainingSessionsIncluded',
+    ],
+  },
+  {
+    title: `Pass 'In Shape (PM)'`,
+    titleId: 'Basic',
+    price: '80',
+    description: [
+      'Training in mini-groups until 17:00',
+      'Without suspension of gym membership',
+      'Classes with a trainer in a mini-group 3 times a week',
+      'Trainer Support',
+    ],
+    descriptionId: [
+      'AccessToCardioAndStrengthTrainingAreas',
+      'GroupFitnessClassesIncluded',
+      'LimitedAccessToPremiumFacilitiesAndAmenities',
+      'NoPersonalTrainingSessionsIncluded',
+    ],
+  },
 ];
 
 export default function Pricing() {
+  const intl = useIntl();
   return (
     <Container
       id="Pricing"
+      dir="ltr"
       sx={{
         pt: { xs: 4, sm: 12 },
         pb: { xs: 8, sm: 16 },
@@ -63,31 +138,30 @@ export default function Pricing() {
         }}
       >
         <Typography component="h2" variant="h4" color="text.primary">
-          Pricing
+          <FormattedMessage id="Pricing" />
         </Typography>
       </Box>
-      <Grid container spacing={3} alignItems="center" justifyContent="center">
-        {tiers.map((tier) => (
+      <Grid container spacing={3} alignItems="stretch" justifyContent="center">
+        {tiers.map(tier => (
           <Grid
             item
+            style={{ display: 'flex' }}
             key={tier.title}
             xs={12}
-            sm={tier.title === 'Enterprise' ? 12 : 6}
+            sm={6}
             md={4}
           >
             <Card
               sx={{
                 p: 2,
                 display: 'flex',
+                justifyContent: 'space-between',
                 flexDirection: 'column',
                 gap: 4,
                 border: tier.title === 'Premium' ? '1px solid' : undefined,
                 borderColor:
                   tier.title === 'Premium' ? 'primary.main' : undefined,
-                background:
-                  tier.title === 'Premium'
-                    ? 'linear-gradient(#033363, #021F3B)'
-                    : undefined,
+                background: 'grey.500',
               }}
             >
               <CardContent>
@@ -95,38 +169,19 @@ export default function Pricing() {
                   sx={{
                     mb: 1,
                     display: 'flex',
-                    justifyContent: 'space-between',
+                    justifyContent: 'center',
                     alignItems: 'center',
-                    color:
-                      tier.title === 'Premium' ? 'primary.contrastText' : '',
                   }}
                 >
                   <Typography component="h3" variant="h6">
                     {tier.title}
                   </Typography>
-                  {tier.title === 'Premium' && (
-                    <Chip
-                      icon={<AutoAwesomeIcon />}
-                      label={tier.subheader}
-                      size="small"
-                      sx={{
-                        background: (theme) =>
-                          theme.palette.mode === 'light' ? '' : 'none',
-                        backgroundColor: 'primary.contrastText',
-                        '& .MuiChip-label': {
-                          color: 'primary.dark',
-                        },
-                        '& .MuiChip-icon': {
-                          color: 'primary.dark',
-                        },
-                      }}
-                    />
-                  )}
                 </Box>
                 <Box
                   sx={{
                     display: 'flex',
                     alignItems: 'baseline',
+                    justifyContent: 'center',
                     color:
                       tier.title === 'Professional'
                         ? 'primary.contrastText'
@@ -134,20 +189,17 @@ export default function Pricing() {
                   }}
                 >
                   <Typography component="h3" variant="h2">
-                  £{tier.price}
-                  </Typography>
-                  <Typography component="h3" variant="h6">
-                    &nbsp; per month
+                    £ {tier.price}
                   </Typography>
                 </Box>
                 <Divider
                   sx={{
                     my: 2,
                     opacity: 0.2,
-                    borderColor: 'grey.500',
+                    borderColor: 'white',
                   }}
                 />
-                {tier.description.map((line) => (
+                {tier.description.map(line => (
                   <Box
                     key={line}
                     sx={{
@@ -157,13 +209,10 @@ export default function Pricing() {
                       alignItems: 'center',
                     }}
                   >
-                    <CheckCircleRoundedIcon
+                    <CheckCircleOutlineIcon
                       sx={{
                         width: 20,
-                        color:
-                          tier.title === 'Premium'
-                            ? 'primary.light'
-                            : 'primary.main',
+                        color: 'white',
                       }}
                     />
                     <Typography
@@ -181,11 +230,9 @@ export default function Pricing() {
                   </Box>
                 ))}
               </CardContent>
-             
             </Card>
           </Grid>
         ))}
-   
       </Grid>
     </Container>
   );

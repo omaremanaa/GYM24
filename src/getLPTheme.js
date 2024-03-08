@@ -2,30 +2,32 @@ import { alpha } from '@mui/material/styles';
 import { red } from '@mui/material/colors';
 
 export const brand = {
-  50: '#F0F7FF',
-  100: '#CEE5FD',
-  200: '#9CCCFC',
-  300: '#55A6F6',
-  400: '#0A66C2',
-  500: '#0959AA',
-  600: '#064079',
-  700: '#033363',
-  800: '#02294F',
-  900: '#021F3B',
+  50: '#FFFCE0',   
+  100: '#FFF9BF',  
+  200: '#FFF59D',  
+  300: '#FFF176',  
+  400: '#FFEE58',  
+  500: '#FFEB3B',  
+  600: '#FDD835',  
+  700: '#FBC02D',  
+  800: '#F9A825',  
+  900: '#F57F17',  
 };
 
+
 export const secondary = {
-  50: '#F9F0FF',
-  100: '#E9CEFD',
-  200: '#D49CFC',
-  300: '#B355F6',
-  400: '#750AC2',
-  500: '#6709AA',
-  600: '#490679',
-  700: '#3B0363',
-  800: '#2F024F',
-  900: '#23023B',
+  50: '#E8F8F0',   // Soft green equivalent
+  100: '#C1E7D9',  // Light green equivalent
+  200: '#92DABE',  // Pale green equivalent
+  300: '#55C1A1',  // Mint green equivalent
+  400: '#0D926B',  // Green equivalent
+  500: '#0C8562',  // Main green color
+  600: '#096946',  // Darker green equivalent
+  700: '#075531',  // Deeper green equivalent
+  800: '#054327',  // Forest green equivalent
+  900: '#04301D',  // Rich green equivalent
 };
+
 
 export const gray = {
   50: '#FBFCFE',
@@ -37,7 +39,7 @@ export const gray = {
   600: '#4C5967',
   700: '#364049',
   800: '#131B20',
-  900: '#090E10',
+  900: '#000000',
 };
 
 export const green = {

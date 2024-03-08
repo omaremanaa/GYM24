@@ -9,12 +9,13 @@ import Typography from '@mui/material/Typography';
 import { faq } from './common/constants';
 
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { FormattedMessage } from 'react-intl';
 
 export default function FAQ() {
   const [expanded, setExpanded] = React.useState(false);
 
-  const handleChange = (panel) => (event, isExpanded) => {
-    console.log(event,"event")
+  const handleChange = panel => (event, isExpanded) => {
+    console.log(event, 'event');
     setExpanded(isExpanded ? panel : false);
   };
 
@@ -40,32 +41,30 @@ export default function FAQ() {
           textAlign: { sm: 'left', md: 'center' },
         }}
       >
-        Frequently asked questions
+        <FormattedMessage id="FrequentlyAskedQuestions" />
       </Typography>
       <Box sx={{ width: '100%' }}>
-        {faq.map(frequent=>
-        <Accordion
-          expanded={frequent.answer === expanded}
-          onChange={handleChange(frequent.answer)}
-        >
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
+        {faq.map(frequent => (
+          <Accordion
+            expanded={frequent.answer === expanded}
+            onChange={handleChange(frequent.answer)}
           >
-            <Typography component="h3" variant="subtitle2">
-              {frequent.question}
-            </Typography>
-          </AccordionSummary>
-          <AccordionDetails>
-            <Typography
-              variant="body2"
-              gutterBottom
-              sx={{ maxWidth: { sm: '100%', md: '70%' } }}
-            >
-              {frequent.answer}
-            </Typography>
-          </AccordionDetails>
-        </Accordion>
-        )}
+            <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+              <Typography component="h3" variant="subtitle2">
+                {frequent.question}
+              </Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <Typography
+                variant="body2"
+                gutterBottom
+                sx={{ maxWidth: { sm: '100%', md: '70%' } }}
+              >
+                {frequent.answer}
+              </Typography>
+            </AccordionDetails>
+          </Accordion>
+        ))}
       </Box>
     </Container>
   );

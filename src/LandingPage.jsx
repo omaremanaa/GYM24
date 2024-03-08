@@ -15,46 +15,42 @@ import Features from './Features';
 import FAQ from './FAQ';
 import Footer from './Footer';
 import getLPTheme from './getLPTheme';
-import gymImage from '../src/common/assets/images/gym.jpg'
+import gymImage from '../src/common/assets/images/gym.jpg';
+import gymImage2 from '../src/common/assets/images/testSplash.png';
+
 import Pricing from './Pricing';
 import { Fab } from '@mui/material';
 
 const defaultTheme = createTheme({});
 
-
-
 export default function LandingPage() {
-  const [showCustomTheme, setShowCustomTheme] = React.useState(true);
   const LPtheme = createTheme(getLPTheme('dark'));
   return (
-    <ThemeProvider theme={showCustomTheme ? LPtheme : defaultTheme}>
+    <ThemeProvider theme={LPtheme}>
       <CssBaseline />
       <div style={{ position: 'relative' }}>
         {/* Toolbar */}
-      <AppAppBar  />
-      {/* Home */}
-      <Hero />
-
-      <img
-        src={gymImage}
-        alt='Gym Image'
-        style={{
-          borderBottomLeftRadius:'20px',
-          borderBottomRightRadius:'20px',
-          width:'100%',
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          opacity: 0.1,
-          pointerEvents: 'none',
-          height:'100%',
-          objectFit:'cover',
-        }}
-      />
-       </div>
+        <AppAppBar />
+        {/* Home */}
+        <Hero />
+        <img
+          src={gymImage}
+          alt="Gym Image"
+          style={{
+            borderBottomLeftRadius: '20px',
+            borderBottomRightRadius: '20px',
+            width: '100%',
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            opacity: 0.1,
+            pointerEvents: 'none',
+            height: '100%',
+            objectFit: 'cover',
+          }}
+        />
+      </div>
       <Box sx={{ bgcolor: 'background.default' }}>
-
-     
         {/* Advantages */}
         <Highlights />
         <Divider />
@@ -66,7 +62,6 @@ export default function LandingPage() {
         <FAQ />
         <Divider />
         <Footer />
-
       </Box>
     </ThemeProvider>
   );

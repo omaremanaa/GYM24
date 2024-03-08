@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import Box from '@mui/material/Box';
@@ -9,21 +9,22 @@ import Typography from '@mui/material/Typography';
 import MenuItem from '@mui/material/MenuItem';
 import MenuIcon from '@mui/icons-material/Menu';
 
-
-import gymLogo from './common/assets/icons/GYM24.svg?react'
+import gymLogo from './common/assets/icons/GYM24.svg';
 import { Button, Drawer } from '@mui/material';
+import { FormattedMessage } from 'react-intl';
 
 const logoStyle = {
+  marginLeft: '2%',
   width: '140px',
   height: 'auto',
   cursor: 'pointer',
 };
 
-const pages = ['Advantages','Coaches', 'Pricing','FAQ', 'Connect']
+const pages = ['Advantages', 'Trainers', 'Pricing', 'FAQ', 'Connect'];
 function AppAppBar() {
   const [open, setOpen] = useState(false);
 
-  const scrollToSection = (sectionId) => {
+  const scrollToSection = sectionId => {
     const sectionElement = document.getElementById(sectionId);
     if (sectionElement) {
       sectionElement.scrollIntoView({ behavior: 'smooth' });
@@ -33,12 +34,10 @@ function AppAppBar() {
   return (
     <div>
       <AppBar
-        position="fixed"
+        dir="ltr"
         sx={{
           boxShadow: 0,
           bgcolor: 'transparent',
-          // backgroundImage: 'none',
-          mt: 2,
         }}
       >
         <Container maxWidth="lg">
@@ -47,14 +46,10 @@ function AppAppBar() {
             sx={{
               flexShrink: 0,
               display: 'flex',
-              alignItems:'center',
+              alignItems: 'center',
               justifyContent: 'end',
               borderRadius: '20px',
-              bgcolor:'rgba(0, 0, 0, 0.4)',
-              backdropFilter: 'blur(24px)',
-              border: '1px solid',
-              borderColor: 'divider',
-              boxShadow:'0 0 1px rgba(2, 31, 59, 0.7), 1px 1.5px 2px -1px rgba(2, 31, 59, 0.65), 4px 4px 12px -2.5px rgba(2, 31, 59, 0.65)',
+              bgcolor: 'transparent',
             }}
           >
             <Box
@@ -66,42 +61,52 @@ function AppAppBar() {
                 px: 0,
               }}
             >
-             <img
-                src={
-                  'https://assets-global.website-files.com/61ed56ae9da9fd7e0ef0a967/61f12e6faf73568658154dae_SitemarkDefault.svg'
-                }
+              <img
+                src={gymLogo}
                 style={logoStyle}
                 alt="logo of sitemark"
-                onClick={()=>{ const sectionElement = document.getElementById('Home');
+                onClick={() => {
+                  const sectionElement = document.getElementById('Home');
 
-                if (sectionElement) {
-                  sectionElement.scrollIntoView({ behavior: 'smooth' });
-                }}}
+                  if (sectionElement) {
+                    sectionElement.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
               />
             </Box>
-              <Box sx={{ display: { xs: 'none', md: 'flex' }, justifyContent:'space-between' }}>
-              {pages.map(page=>
+            <Box
+              sx={{
+                display: { xs: 'none', md: 'flex' },
+                justifyContent: 'space-between',
+                gap: '10%',
+                marginRight: '10%',
+              }}
+            >
+              {pages.map(page => (
                 <MenuItem
                   onClick={() => scrollToSection(page)}
                   sx={{ py: '6px', px: '12px' }}
                 >
                   <Typography variant="body2" color="text.primary">
-                    {page}
+                    <FormattedMessage id={page} />
                   </Typography>
                 </MenuItem>
-                )}
-              </Box>
-              <Box sx={{ display: { sm: '', md: 'none' } }}>
+              ))}
+            </Box>
+            <Box sx={{ display: { sm: '', md: 'none' } }}>
               <Button
                 variant="text"
-                color="primary"
                 aria-label="menu"
-                onClick={()=>setOpen(true)}
-                sx={{ minWidth: '30px', p: '4px' }}
+                onClick={() => setOpen(true)}
+                sx={{
+                  minWidth: '30px',
+                  p: '4px',
+                  color: 'white',
+                }}
               >
                 <MenuIcon />
               </Button>
-              <Drawer anchor="right" open={open} onClose={()=>setOpen(false)}>
+              <Drawer anchor="right" open={open} onClose={() => setOpen(false)}>
                 <Box
                   sx={{
                     minWidth: '60dvw',
@@ -110,17 +115,14 @@ function AppAppBar() {
                     flexGrow: 1,
                   }}
                 >
-                  {pages.map(page=>
-                <MenuItem
-                  onClick={() => scrollToSection(page)}
-                >
-                  {page}
-                </MenuItem>
-                )}
+                  {pages.map(page => (
+                    <MenuItem onClick={() => scrollToSection(page)}>
+                      <FormattedMessage id={page} />
+                    </MenuItem>
+                  ))}
                 </Box>
               </Drawer>
             </Box>
-           
           </Toolbar>
         </Container>
       </AppBar>
