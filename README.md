@@ -14,7 +14,7 @@ Welcome to our Gym Website! This landing page provides an overview of our gym's 
 
 ## Getting Started
 
-To explore our gym website, simply visit [www.gym24.com](https://club30-gym.vercel.app/) and start your fitness journey today. Feel free to navigate through the different sections to learn more about our coaches, pricing, and gym features.
+To explore our gym website, simply visit [https://24-gym.vercel.app/](https://24-gym.vercel.app/) and start your fitness journey today. Feel free to navigate through the different sections to learn more about our coaches, pricing, and gym features.
 
 ## Installation
 
