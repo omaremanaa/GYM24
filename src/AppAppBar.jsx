@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import Box from '@mui/material/Box';
@@ -21,7 +21,7 @@ const logoStyle = {
 };
 
 const pages = ['Advantages', 'Trainers', 'Pricing', 'FAQ', 'Connect'];
-function AppAppBar() {
+function AppAppBar({ mutate, currentLanguage }) {
   const [open, setOpen] = useState(false);
 
   const scrollToSection = sectionId => {
@@ -78,7 +78,6 @@ function AppAppBar() {
               sx={{
                 display: { xs: 'none', md: 'flex' },
                 justifyContent: 'space-between',
-                gap: '10%',
                 marginRight: '10%',
               }}
             >
@@ -92,8 +91,30 @@ function AppAppBar() {
                   </Typography>
                 </MenuItem>
               ))}
+              <div>
+                <Button
+                  onClick={() => {
+                    currentLanguage === 'en'
+                      ? localStorage.setItem('locale', 'ar')
+                      : localStorage.setItem('locale', 'en');
+                    mutate();
+                  }}
+                  style={{ color: 'white' }}
+                >
+                  {currentLanguage === 'en' ? (
+                    <Typography>E</Typography>
+                  ) : (
+                    <Typography>ع</Typography>
+                  )}
+                </Button>
+              </div>
             </Box>
-            <Box sx={{ display: { sm: '', md: 'none' } }}>
+            <Box
+              sx={{
+                display: { sm: 'flex', md: 'none' },
+                justifyContent: { sm: 'space-between' },
+              }}
+            >
               <Button
                 variant="text"
                 aria-label="menu"
@@ -106,6 +127,7 @@ function AppAppBar() {
               >
                 <MenuIcon />
               </Button>
+
               <Drawer anchor="right" open={open} onClose={() => setOpen(false)}>
                 <Box
                   sx={{
@@ -122,6 +144,23 @@ function AppAppBar() {
                   ))}
                 </Box>
               </Drawer>
+              <div>
+                <Button
+                  onClick={() => {
+                    currentLanguage === 'en'
+                      ? localStorage.setItem('locale', 'ar')
+                      : localStorage.setItem('locale', 'en');
+                    mutate();
+                  }}
+                  style={{ color: 'white' }}
+                >
+                  {currentLanguage === 'en' ? (
+                    <Typography>E</Typography>
+                  ) : (
+                    <Typography>ع</Typography>
+                  )}
+                </Button>
+              </div>
             </Box>
           </Toolbar>
         </Container>

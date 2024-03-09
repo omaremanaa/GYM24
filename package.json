@@ -18,6 +18,8 @@
     "@mui/material": "^5.15.11",
     "@mui/styles": "^5.15.11",
     "@mui/x-data-grid": "^6.19.5",
+    "@tanstack/react-query": "^5.25.0",
+    "@tanstack/react-query-devtools": "^5.25.0",
     "classnames": "^2.5.1",
     "framer-motion": "^11.0.6",
     "react": "^18.2.0",
@@ -28,6 +30,7 @@
     "react-scroll": "^1.9.0"
   },
   "devDependencies": {
+    "@tanstack/eslint-plugin-query": "^5.20.1",
     "@types/react": "^18.2.56",
     "@types/react-dom": "^18.2.19",
     "@vitejs/plugin-react": "^4.2.1",

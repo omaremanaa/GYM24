@@ -1,15 +1,29 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './App';
-import { ThemeProvider } from '@mui/material/styles';
-import theme from './theme';
-import { IntlProvider } from 'react-intl';
-import translations from './common/translations';
+import React, { useEffect } from 'react';
+import { createRoot } from 'react-dom/client';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <IntlProvider messages={translations['en']} defaultLocale="en">
-    <ThemeProvider theme={theme}>
-      <App />
-    </ThemeProvider>
-  </IntlProvider>,
-);
+import { ThemeProvider } from '@mui/material/styles';
+
+import theme from './theme';
+import LandingPage from './LandingPage';
+
+function Main() {
+  const queryClient = new QueryClient();
+
+  return (
+    <QueryClientProvider client={queryClient}>
+      <>
+        <ReactQueryDevtools />
+      </>
+      <ThemeProvider theme={theme}>
+        <LandingPage />
+      </ThemeProvider>
+    </QueryClientProvider>
+  );
+}
+
+const container = document.getElementById('root');
+const root = createRoot(container);
+
+root.render(<Main />);
