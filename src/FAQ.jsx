@@ -53,7 +53,7 @@ export default function FAQ() {
           >
             <AccordionSummary expandIcon={<ExpandMoreIcon />}>
               <Typography component="h3" variant="subtitle2">
-                {frequent.question}
+                <FormattedMessage id={frequent.questionId} />
               </Typography>
             </AccordionSummary>
             <AccordionDetails>
@@ -62,7 +62,7 @@ export default function FAQ() {
                 gutterBottom
                 sx={{ maxWidth: { sm: '100%', md: '70%' } }}
               >
-                {frequent.answer}
+                <FormattedMessage id={frequent.answerId} />
               </Typography>
             </AccordionDetails>
           </Accordion>

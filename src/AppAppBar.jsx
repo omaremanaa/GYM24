@@ -102,7 +102,7 @@ function AppAppBar({ mutate, currentLanguage }) {
                   }}
                   style={{ color: 'white' }}
                 >
-                  {currentLanguage === 'en' ? (
+                  {currentLanguage === 'ar' ? (
                     <Typography>E</Typography>
                   ) : (
                     <Typography>ع</Typography>
@@ -155,7 +155,7 @@ function AppAppBar({ mutate, currentLanguage }) {
                   }}
                   style={{ color: 'white' }}
                 >
-                  {currentLanguage === 'en' ? (
+                  {currentLanguage === 'ar' ? (
                     <Typography>E</Typography>
                   ) : (
                     <Typography>ع</Typography>

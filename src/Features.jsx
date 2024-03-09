@@ -14,7 +14,7 @@ import YouTubeIcon from '@mui/icons-material/YouTube';
 import CustomizedDialogs from './common/components/Dialog';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/styles';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, useIntl } from 'react-intl';
 
 const limit = 3;
 
@@ -23,6 +23,7 @@ export default function Features() {
   const [isOpenDialog, setIsOpenDialog] = useState(false);
   const [clickedCoach, setClickedCoach] = useState();
   const [isHovered, setIsHovered] = useState(false);
+  const intl = useIntl();
 
   const theme = useTheme();
   const small = useMediaQuery(theme.breakpoints.up('sm'));
@@ -64,7 +65,11 @@ export default function Features() {
           <FormattedMessage id="TrainersStaff" />
         </Typography>
       </div>
-      <Container dir="ltr" id="Trainers" sx={{ py: { xs: 8, sm: 8 } }}>
+      <Container
+        dir={enLocale ? 'ltr' : 'rtl'}
+        id="Trainers"
+        sx={{ py: { xs: 8, sm: 8 } }}
+      >
         <div>
           <Grid container>
             {getDataUsed().map((coach, index) => (
@@ -140,7 +145,8 @@ export default function Features() {
                       }}
                     >
                       <Typography gutterBottom variant="h5" color={'white'}>
-                        {coach.profile.firstName} {coach.profile.lastName}
+                        {<FormattedMessage id={coach.profile.firstNameId} />}{' '}
+                        {<FormattedMessage id={coach.profile.lastNameId} />}
                       </Typography>
                     </div>
                   </CardContent>
@@ -223,13 +229,14 @@ export default function Features() {
         </Box>
         {isOpenDialog ? (
           <CustomizedDialogs
+            locale={enLocale}
             isOpen={isOpenDialog}
             handleClose={() => setIsOpenDialog(false)}
             data={{
-              name: `${clickedCoach.profile.firstName} ${clickedCoach.profile.lastName} `,
+              name: `${intl.formatMessage({ id: clickedCoach.profile.firstNameId })} ${intl.formatMessage({ id: clickedCoach.profile.lastNameId })} `,
               age: clickedCoach.profile.DOB,
-              nationality: clickedCoach.profile.nationality,
-              history: clickedCoach.history,
+              nationality: clickedCoach.profile.nationalityId,
+              history: clickedCoach.historyId,
             }}
           />
         ) : null}

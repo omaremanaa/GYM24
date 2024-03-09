@@ -8,20 +8,22 @@ import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import Typography from '@mui/material/Typography';
 import PropTypes from 'prop-types';
+import { FormattedMessage } from 'react-intl';
 
-function CustomizedDialogs({ isOpen, handleClose, data }) {
+function CustomizedDialogs({ isOpen, handleClose, data, locale }) {
   return (
-    <React.Fragment>
-      <Dialog onClose={handleClose} open={isOpen}>
+    <>
+      <Dialog dir={locale ? 'ltr' : 'rtl'} onClose={handleClose} open={isOpen}>
         <DialogTitle sx={{ m: 0, p: 2 }} id="customized-dialog-title">
-          Coach Details
+          <FormattedMessage id="CoachDetails" />
         </DialogTitle>
         <IconButton
           aria-label="close"
           onClick={handleClose}
           sx={{
             position: 'absolute',
-            right: 8,
+            right: locale ? 8 : null,
+            left: locale ? null : 8,
             top: 8,
             color: theme => theme.palette.grey[500],
           }}
@@ -29,32 +31,43 @@ function CustomizedDialogs({ isOpen, handleClose, data }) {
           <CloseIcon />
         </IconButton>
         <DialogContent dividers>
-          <Typography gutterBottom>Name: {data.name}</Typography>
           <Typography gutterBottom>
-            Age: {new Date().getFullYear() - new Date(data.age).getFullYear()}
+            {' '}
+            <FormattedMessage id="Name" />: {data.name}
           </Typography>
-          <Typography gutterBottom>Nationality: {data.nationality}</Typography>
+          <Typography gutterBottom>
+            <FormattedMessage id="Age" />:{' '}
+            {new Intl.NumberFormat(locale ? 'en' : 'ar-SA').format(
+              new Date().getFullYear() - new Date(data.age).getFullYear(),
+            )}
+          </Typography>
+          <Typography gutterBottom>
+            <FormattedMessage id="Nationality" />:{' '}
+            <FormattedMessage id={data.nationality} />
+          </Typography>
           <Typography
             variant="h5"
             style={{ display: 'flex', justifyContent: 'center' }}
           >
-            History
+            <FormattedMessage id="History" />
           </Typography>
           {data.history.map(coachHistory => (
             <ul>
               <li>
-                <Typography gutterBottom>{coachHistory}</Typography>
+                <Typography gutterBottom>
+                  {<FormattedMessage id={coachHistory} />}
+                </Typography>
               </li>
             </ul>
           ))}
         </DialogContent>
         <DialogActions>
           <Button autoFocus onClick={handleClose}>
-            Close
+            <FormattedMessage id="Close" />
           </Button>
         </DialogActions>
       </Dialog>
-    </React.Fragment>
+    </>
   );
 }
 CustomizedDialogs.propTypes = {
@@ -66,6 +79,7 @@ CustomizedDialogs.propTypes = {
     nationality: PropTypes.string,
     age: PropTypes.string,
   }).isRequired,
+  locale: PropTypes.bool.isRequired,
 };
 
 export default CustomizedDialogs;

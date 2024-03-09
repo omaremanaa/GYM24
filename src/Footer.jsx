@@ -11,6 +11,7 @@ import FacebookIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import TwitterIcon from '@mui/icons-material/X';
 import gymLogo from './common/assets/icons/GYM24.svg';
+import { FormattedMessage } from 'react-intl';
 
 const logoStyle = {
   width: '140px',
@@ -42,7 +43,7 @@ export default function Footer() {
             setIsPrivacyPolicyOpen(true);
           }}
         >
-          Privacy Policy
+          <FormattedMessage id="PrivacyPolicy" />
         </Link>
         <Typography display="inline" sx={{ mx: 0.5, opacity: 0.5 }}>
           &nbsp;•&nbsp;
@@ -53,7 +54,7 @@ export default function Footer() {
             setIsTermsOpen(true);
           }}
         >
-          Terms of Service
+          <FormattedMessage id="TermsOfService" />
         </Link>
       </div>
       <Stack

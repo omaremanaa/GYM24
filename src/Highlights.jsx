@@ -17,12 +17,16 @@ const items = [
     title: 'Forge a Better You',
     description:
       'Discover the Power of Fitness – Elevate Your Health, Ignite Your Confidence.',
+    titleId: 'ForgeABetterYou',
+    descriptionId: 'DiscoverThePowerOfFitness',
   },
   {
     icon: <MonitorWeightIcon style={{ color: '#FAFF00', fontSize: '2pc' }} />,
     title: 'Scale to Success',
     description:
       'Measure Your Progress, Embrace Your Journey – Fitness That Transcends Numbers.',
+    titleId: 'ScaleToSuccess',
+    descriptionId: 'MeasureYourProgress',
   },
   {
     icon: (
@@ -33,11 +37,15 @@ const items = [
     title: 'Happy Moves, Happy You',
     description:
       'Enjoy Fitness on Your Terms – Elevate Your Experience, Boost Your Mood.',
+    titleId: 'HappyMovesHappyYou',
+    descriptionId: 'EnjoyFitnessOnYourTerms',
   },
   {
     icon: <MonitorHeartIcon style={{ color: '#FAFF00', fontSize: '2pc' }} />,
     title: 'Pulse of Progress',
     description: 'Where Every Beat Counts – Elevating Lives Through Fitness.',
+    titleId: 'PulseOfProgress',
+    descriptionId: 'WhereEveryBeatCounts',
   },
 ];
 
@@ -104,10 +112,10 @@ export default function Highlights() {
                 </Box>
                 <div>
                   <Typography fontWeight="medium" gutterBottom>
-                    {item.title}
+                    <FormattedMessage id={item.titleId} />
                   </Typography>
                   <Typography variant="body2" sx={{ color: 'grey.400' }}>
-                    {item.description}
+                    <FormattedMessage id={item.descriptionId} />
                   </Typography>
                 </div>
               </Stack>

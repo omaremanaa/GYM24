@@ -16,22 +16,17 @@ import { FormattedMessage } from 'react-intl';
 const tiers = [
   {
     title: 'Pass Trial',
-    titleId: 'Basic',
+    titleId: 'PassTrial',
     price: '0',
     description: [
       'Access to the gym from 8:00 to 14:00',
       'The trainer on duty will introduce you to the gym',
     ],
-    descriptionId: [
-      'AccessToCardioAndStrengthTrainingAreas',
-      'GroupFitnessClassesIncluded',
-      'LimitedAccessToPremiumFacilitiesAndAmenities',
-      'NoPersonalTrainingSessionsIncluded',
-    ],
+    descriptionId: ['AccessToTheGymFrom8AMTo2PM', 'TrainerOnDutyIntroduction'],
   },
   {
     title: `Pass 'Easy Start'`,
-    titleId: 'Basic',
+    titleId: 'PassEasyStart',
     price: '119',
     description: [
       'Visit without restrictions 24/7',
@@ -40,15 +35,15 @@ const tiers = [
       'Trainer support',
     ],
     descriptionId: [
-      'AccessToCardioAndStrengthTrainingAreas',
-      'GroupFitnessClassesIncluded',
-      'LimitedAccessToPremiumFacilitiesAndAmenities',
-      'NoPersonalTrainingSessionsIncluded',
+      'VisitWithoutRestrictions24/7',
+      'IndividualTrainingProgram',
+      'AccessToVTrainerApplication',
+      'TrainerSupport',
     ],
   },
   {
     title: `Pass 'Free Time'`,
-    titleId: 'Basic',
+    titleId: 'PassFreeTime',
     price: '49',
     description: [
       'The entrance time from the gym is from 14:00 to 16:00',
@@ -56,30 +51,27 @@ const tiers = [
       'The trainer on duty will introduce you to the gym',
     ],
     descriptionId: [
-      'AccessToCardioAndStrengthTrainingAreas',
-      'GroupFitnessClassesIncluded',
-      'LimitedAccessToPremiumFacilitiesAndAmenities',
-      'NoPersonalTrainingSessionsIncluded',
+      'EntranceTimeFrom2PMTo4PM',
+      'WithoutSuspensionOfGymMembership',
+      'TrainerOnDutyIntroduction',
     ],
   },
   {
     title: `Pass '1 Month 24/7'`,
-    titleId: 'Basic',
+    titleId: 'Pass1Month24/7',
     price: '85',
     description: [
       'Visit without restrictions 24/7',
       'The trainer on duty will introduce you to the gym',
     ],
     descriptionId: [
-      'AccessToCardioAndStrengthTrainingAreas',
-      'GroupFitnessClassesIncluded',
-      'LimitedAccessToPremiumFacilitiesAndAmenities',
-      'NoPersonalTrainingSessionsIncluded',
+      'VisitWithoutRestrictions24/7',
+      'TrainerOnDutyIntroductionFor1Month24/7',
     ],
   },
   {
     title: `Pass 'In Shape (AM)'`,
-    titleId: 'Basic',
+    titleId: 'PassInShapeAM',
     price: '80',
     description: [
       'Training in mini-groups until 14:00',
@@ -88,15 +80,15 @@ const tiers = [
       'Trainer Support',
     ],
     descriptionId: [
-      'AccessToCardioAndStrengthTrainingAreas',
-      'GroupFitnessClassesIncluded',
-      'LimitedAccessToPremiumFacilitiesAndAmenities',
-      'NoPersonalTrainingSessionsIncluded',
+      'TrainingInMiniGroupsUntil2PM',
+      'WithoutSuspensionOfGymMembership',
+      'ClassesWithTrainerInMiniGroup3TimesAWeek',
+      'TrainerSupport',
     ],
   },
   {
     title: `Pass 'In Shape (PM)'`,
-    titleId: 'Basic',
+    titleId: 'PassInShapePM',
     price: '80',
     description: [
       'Training in mini-groups until 17:00',
@@ -105,10 +97,10 @@ const tiers = [
       'Trainer Support',
     ],
     descriptionId: [
-      'AccessToCardioAndStrengthTrainingAreas',
-      'GroupFitnessClassesIncluded',
-      'LimitedAccessToPremiumFacilitiesAndAmenities',
-      'NoPersonalTrainingSessionsIncluded',
+      'TrainingInMiniGroupsUntil5PM',
+      'WithoutSuspensionOfGymMembership',
+      'ClassesWithTrainerInMiniGroup3TimesAWeek',
+      'TrainerSupport',
     ],
   },
 ];
@@ -173,7 +165,7 @@ export default function Pricing() {
                   }}
                 >
                   <Typography component="h3" variant="h6">
-                    {tier.title}
+                    <FormattedMessage id={tier.titleId} />
                   </Typography>
                 </Box>
                 <Box
@@ -198,7 +190,7 @@ export default function Pricing() {
                     borderColor: 'white',
                   }}
                 />
-                {tier.description.map(line => (
+                {tier.descriptionId.map(line => (
                   <Box
                     key={line}
                     sx={{
@@ -224,7 +216,7 @@ export default function Pricing() {
                             : undefined,
                       }}
                     >
-                      {line}
+                      <FormattedMessage id={line} />
                     </Typography>
                   </Box>
                 ))}
