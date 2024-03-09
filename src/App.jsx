@@ -12,10 +12,10 @@ import Advantages from './views/Advantages';
 import Coaches from './views/Coaches';
 import FAQ from './views/FAQ';
 import Footer from './views/Footer';
+import Pricing from './views/Pricing';
 import getLPTheme from './getLPTheme';
 import gymImage from '../src/common/assets/images/gym.jpg';
 import translations from './common/translations';
-import Pricing from './Pricing';
 import { useMutation, useQuery } from '@tanstack/react-query';
 
 export default function App() {

@@ -11,7 +11,7 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import XIcon from '@mui/icons-material/X';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 
-import CustomizedDialogs from '../../common/components/Dialog';
+import CustomizedDialogs from './components/Dialog';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/styles';
 import { FormattedMessage, useIntl } from 'react-intl';

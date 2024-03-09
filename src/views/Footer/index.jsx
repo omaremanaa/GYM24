@@ -1,17 +1,18 @@
-/* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
+import { FormattedMessage, useIntl } from 'react-intl';
+
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import IconButton from '@mui/material/IconButton';
 import Link from '@mui/material/Link';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
-
 import FacebookIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import TwitterIcon from '@mui/icons-material/X';
+
 import gymLogo from '../../common/assets/icons/GYM24.svg';
-import { FormattedMessage } from 'react-intl';
+import DialogModal from '../../common/components/Dialog';
 
 const logoStyle = {
   width: '140px',
@@ -19,8 +20,14 @@ const logoStyle = {
 };
 
 export default function Footer() {
+  const intl = useIntl();
+  const enLocale = localStorage.getItem('locale')
+    ? localStorage.getItem('locale') === 'en'
+    : true;
+
   const [isPrivacyPolicyOpen, setIsPrivacyPolicyOpen] = useState(false);
   const [isTermsOpen, setIsTermsOpen] = useState(false);
+
   return (
     <Container
       id="Connect"
@@ -38,6 +45,9 @@ export default function Footer() {
       </Box>
       <div>
         <Link
+          style={{
+            cursor: 'pointer',
+          }}
           color="text.secondary"
           onClick={() => {
             setIsPrivacyPolicyOpen(true);
@@ -49,6 +59,9 @@ export default function Footer() {
           &nbsp;•&nbsp;
         </Typography>
         <Link
+          style={{
+            cursor: 'pointer',
+          }}
           color="text.secondary"
           onClick={() => {
             setIsTermsOpen(true);
@@ -91,6 +104,24 @@ export default function Footer() {
           <LinkedInIcon />
         </IconButton>
       </Stack>
+      {isPrivacyPolicyOpen && (
+        <DialogModal
+          title={intl.formatMessage({ id: 'PrivacyPolicy' })}
+          content={intl.formatMessage({ id: 'PrivacyDescription' })}
+          isOpen={isPrivacyPolicyOpen}
+          handleClose={() => setIsPrivacyPolicyOpen(false)}
+          locale={enLocale}
+        />
+      )}
+      {isTermsOpen && (
+        <DialogModal
+          title={intl.formatMessage({ id: 'TermsOfService' })}
+          content={intl.formatMessage({ id: 'TOSDescription' })}
+          isOpen={isTermsOpen}
+          handleClose={() => setIsTermsOpen(false)}
+          locale={enLocale}
+        />
+      )}
     </Container>
   );
 }

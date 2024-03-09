@@ -10,13 +10,11 @@ import Typography from '@mui/material/Typography';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 
-function CustomizedDialogs({ isOpen, handleClose, data, locale }) {
+function DialogModal({ isOpen, handleClose, locale, title, content }) {
   return (
     <>
       <Dialog dir={locale ? 'ltr' : 'rtl'} onClose={handleClose} open={isOpen}>
-        <DialogTitle sx={{ m: 0, p: 2 }} id="customized-dialog-title">
-          <FormattedMessage id="CoachDetails" />
-        </DialogTitle>
+        <DialogTitle sx={{ m: 0, p: 2 }}>{title}</DialogTitle>
         <IconButton
           aria-label="close"
           onClick={handleClose}
@@ -31,35 +29,7 @@ function CustomizedDialogs({ isOpen, handleClose, data, locale }) {
           <CloseIcon />
         </IconButton>
         <DialogContent dividers>
-          <Typography gutterBottom>
-            {' '}
-            <FormattedMessage id="Name" />: {data.name}
-          </Typography>
-          <Typography gutterBottom>
-            <FormattedMessage id="Age" />:{' '}
-            {new Intl.NumberFormat(locale ? 'en' : 'ar-SA').format(
-              new Date().getFullYear() - new Date(data.age).getFullYear(),
-            )}
-          </Typography>
-          <Typography gutterBottom>
-            <FormattedMessage id="Nationality" />:{' '}
-            <FormattedMessage id={data.nationality} />
-          </Typography>
-          <Typography
-            variant="h5"
-            style={{ display: 'flex', justifyContent: 'center' }}
-          >
-            <FormattedMessage id="History" />
-          </Typography>
-          {data.history.map(coachHistory => (
-            <ul>
-              <li>
-                <Typography gutterBottom>
-                  {<FormattedMessage id={coachHistory} />}
-                </Typography>
-              </li>
-            </ul>
-          ))}
+          <Typography>{content}</Typography>
         </DialogContent>
         <DialogActions>
           <Button autoFocus onClick={handleClose}>
@@ -70,16 +40,12 @@ function CustomizedDialogs({ isOpen, handleClose, data, locale }) {
     </>
   );
 }
-CustomizedDialogs.propTypes = {
+DialogModal.propTypes = {
   handleClose: PropTypes.func.isRequired,
   isOpen: PropTypes.bool.isRequired,
-  data: PropTypes.shape({
-    name: PropTypes.string,
-    history: PropTypes.arrayOf(PropTypes.shape()),
-    nationality: PropTypes.string,
-    age: PropTypes.string,
-  }).isRequired,
   locale: PropTypes.bool.isRequired,
+  title: PropTypes.string.isRequired,
+  content: PropTypes.string.isRequired,
 };
 
-export default CustomizedDialogs;
+export default DialogModal;
