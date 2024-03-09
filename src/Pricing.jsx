@@ -144,6 +144,7 @@ export default function Pricing() {
           >
             <Card
               sx={{
+                width: '100%',
                 p: 2,
                 display: 'flex',
                 justifyContent: 'space-between',
