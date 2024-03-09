@@ -104,7 +104,6 @@ export default function Features() {
                       objectFit: 'contain',
                       '&:hover': {
                         cursor: 'pointer',
-                        backgroundColor: 'primary.main',
                         opacity: 0.9,
                       },
                     }}
@@ -120,6 +119,7 @@ export default function Features() {
                             left: 0,
                             width: '100%',
                             height: '100%',
+                            borderRadius: '15px',
                             backgroundColor: 'rgba(0, 0, 0, 0.5)', // Adjust the overlay color and opacity
                             display: 'flex',
                             alignItems: 'center',
