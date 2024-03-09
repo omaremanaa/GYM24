@@ -49,7 +49,7 @@ const items = [
   },
 ];
 
-export default function Highlights() {
+export default function Advantages() {
   const enLocale = localStorage.getItem('locale')
     ? localStorage.getItem('locale') === 'en'
     : true;

@@ -6,7 +6,7 @@ import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import { FormattedMessage } from 'react-intl';
 
-export default function Hero() {
+export default function Home() {
   const theme = useTheme();
   const xsmall = useMediaQuery(theme.breakpoints.up('xs'));
 

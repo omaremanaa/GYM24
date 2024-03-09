@@ -18,7 +18,7 @@ import { FormattedMessage, useIntl } from 'react-intl';
 
 const limit = 3;
 
-export default function Features() {
+export default function Coaches() {
   const [currentPage, setCurrentPage] = useState(0);
   const [isOpenDialog, setIsOpenDialog] = useState(false);
   const [clickedCoach, setClickedCoach] = useState();

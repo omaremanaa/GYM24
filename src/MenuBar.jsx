@@ -21,8 +21,7 @@ const logoStyle = {
 };
 
 const pages = ['Advantages', 'Trainers', 'Pricing', 'FAQ', 'Connect'];
-console.log(document.getElementsByTagName('Home'), 'Home');
-function AppAppBar({ mutate, currentLanguage }) {
+function MenuBar({ mutate, currentLanguage }) {
   const [open, setOpen] = useState(false);
   const [isTopPage, setIsTopPage] = useState(true);
 
@@ -182,9 +181,9 @@ function AppAppBar({ mutate, currentLanguage }) {
     </div>
   );
 }
-AppAppBar.propTypes = {
+MenuBar.propTypes = {
   mutate: PropTypes.func.isRequired,
   currentLanguage: PropTypes.string.isRequired,
 };
 
-export default AppAppBar;
+export default MenuBar;

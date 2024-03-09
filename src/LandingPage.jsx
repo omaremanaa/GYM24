@@ -6,10 +6,10 @@ import Divider from '@mui/material/Divider';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { IntlProvider } from 'react-intl';
 
-import AppAppBar from './AppAppBar';
-import Hero from './Hero';
-import Highlights from './Highlights';
-import Features from './Features';
+import MenuBar from './MenuBar';
+import Home from './Home';
+import Advantages from './Advantages';
+import Coaches from './Coaches';
 import FAQ from './FAQ';
 import Footer from './Footer';
 import getLPTheme from './getLPTheme';
@@ -25,7 +25,6 @@ export default function LandingPage() {
   const [currentLanguage, setCurrentLanguage] = useState(
     currentLanguageLocalStorage,
   );
-  console.log(currentLanguage, 'currentLanguageLocalStorage33');
 
   const { refetch } = useQuery({
     queryKey: ['locale'],
@@ -47,10 +46,8 @@ export default function LandingPage() {
       <ThemeProvider theme={LPtheme}>
         <CssBaseline />
         <div style={{ position: 'relative' }}>
-          {/* Toolbar */}
-          <AppAppBar mutate={mutate} currentLanguage={currentLanguage} />
-          {/* Home */}
-          <Hero />
+          <MenuBar mutate={mutate} currentLanguage={currentLanguage} />
+          <Home />
           <img
             src={gymImage}
             alt="Gym Image"
@@ -69,11 +66,9 @@ export default function LandingPage() {
           />
         </div>
         <Box sx={{ bgcolor: 'background.default' }}>
-          {/* Advantages */}
-          <Highlights />
+          <Advantages />
           <Divider />
-          {/* Coaches */}
-          <Features />
+          <Coaches />
           <Divider />
           <Pricing />
           <Divider />
