@@ -112,7 +112,7 @@ function AppAppBar({ mutate, currentLanguage }) {
             </Box>
             <Box
               sx={{
-                display: { sm: 'flex', md: 'none' },
+                display: { xs: 'flex', sm: 'flex', md: 'none' },
                 justifyContent: { sm: 'space-between' },
               }}
             >

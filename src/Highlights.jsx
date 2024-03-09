@@ -42,9 +42,10 @@ const items = [
 ];
 
 export default function Highlights() {
+  const enLocale = localStorage.getItem('locale') === 'en';
   return (
     <Box
-      dir="ltr"
+      dir={enLocale ? 'ltr' : 'rtl'}
       id="Advantages"
       sx={{
         pt: { xs: 4, sm: 12 },
@@ -65,7 +66,7 @@ export default function Highlights() {
         <Box
           sx={{
             width: { sm: '100%', md: '70%' },
-            textAlign: { sm: 'left', md: 'left' },
+            textAlign: enLocale ? 'left' : 'right',
           }}
         >
           <Typography component="h2" variant="h4">
@@ -75,7 +76,12 @@ export default function Highlights() {
             <FormattedMessage id="ExploreWhy" />
           </Typography>
         </Box>
-        <Grid container spacing={2.5} width={{ xs: '90%', md: '70%' }}>
+        <Grid
+          // dir="rtl"
+          container
+          spacing={2.5}
+          width={{ xs: '90%', md: '70%' }}
+        >
           {items.map((item, index) => (
             <Grid item xs={12} sm={6} md={6} key={index}>
               <Stack

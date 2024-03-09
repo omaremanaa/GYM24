@@ -114,10 +114,12 @@ const tiers = [
 ];
 
 export default function Pricing() {
+  const enLocale = localStorage.getItem('locale') === 'en';
+
   return (
     <Container
       id="Pricing"
-      dir="ltr"
+      dir={enLocale ? 'ltr' : 'rtl'}
       sx={{
         pt: { xs: 4, sm: 12 },
         pb: { xs: 8, sm: 16 },

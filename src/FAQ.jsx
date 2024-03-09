@@ -12,6 +12,7 @@ import { FormattedMessage } from 'react-intl';
 
 export default function FAQ() {
   const [expanded, setExpanded] = React.useState(false);
+  const enLocale = localStorage.getItem('locale') === 'en';
 
   const handleChange = panel => (event, isExpanded) => {
     console.log(event, 'event');
@@ -20,6 +21,7 @@ export default function FAQ() {
 
   return (
     <Container
+      dir={enLocale ? 'ltr' : 'rtl'}
       id="FAQ"
       sx={{
         pt: { xs: 4, sm: 12 },

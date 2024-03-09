@@ -28,6 +28,7 @@ export default function Features() {
   const small = useMediaQuery(theme.breakpoints.up('sm'));
   const xsmall = useMediaQuery(theme.breakpoints.up('xs'));
   const medium = useMediaQuery(theme.breakpoints.up('md'));
+  const enLocale = localStorage.getItem('locale') === 'en';
 
   const coachesSeparated = [
     ...coaches.slice(0 + currentPage, limit + currentPage),
@@ -196,6 +197,7 @@ export default function Features() {
         </div>
         {/* add condition for icons in intl */}
         <Box
+          dir={enLocale ? 'ltr' : 'rtl'}
           sx={{
             marginTop: '3%',
             display: 'flex',
@@ -206,7 +208,7 @@ export default function Features() {
             disabled={currentPage === 0}
             onClick={() => handleButtonClick(-1)}
           >
-            <ChevronLeftIcon />
+            {enLocale ? <ChevronLeftIcon /> : <ChevronRightIcon />}
           </IconButton>
           <IconButton
             disabled={
@@ -216,7 +218,7 @@ export default function Features() {
             }
             onClick={() => handleButtonClick(1)}
           >
-            <ChevronRightIcon />
+            {enLocale ? <ChevronRightIcon /> : <ChevronLeftIcon />}
           </IconButton>
         </Box>
         {isOpenDialog ? (
