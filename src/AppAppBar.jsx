@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import Box from '@mui/material/Box';
@@ -83,6 +83,7 @@ function AppAppBar({ mutate, currentLanguage }) {
             >
               {pages.map(page => (
                 <MenuItem
+                  key={page}
                   onClick={() => scrollToSection(page)}
                   sx={{ py: '6px', px: '12px' }}
                 >
@@ -138,7 +139,7 @@ function AppAppBar({ mutate, currentLanguage }) {
                   }}
                 >
                   {pages.map(page => (
-                    <MenuItem onClick={() => scrollToSection(page)}>
+                    <MenuItem key={page} onClick={() => scrollToSection(page)}>
                       <FormattedMessage id={page} />
                     </MenuItem>
                   ))}
@@ -168,5 +169,9 @@ function AppAppBar({ mutate, currentLanguage }) {
     </div>
   );
 }
+AppAppBar.propTypes = {
+  mutate: PropTypes.func.isRequired,
+  currentLanguage: PropTypes.string.isRequired,
+};
 
 export default AppAppBar;

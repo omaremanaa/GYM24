@@ -7,8 +7,6 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import { Box, CardContent, CardMedia, Grow, IconButton } from '@mui/material';
 import { coaches } from './common/constants';
-import gymPerson from '../src/common/assets/images/gymPerson.jpg';
-import staffMember from '../src/common/assets/images/staffMember.png';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import XIcon from '@mui/icons-material/X';
 import YouTubeIcon from '@mui/icons-material/YouTube';

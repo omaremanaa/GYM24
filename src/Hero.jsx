@@ -5,7 +5,6 @@ import Container from '@mui/material/Container';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import { FormattedMessage } from 'react-intl';
-import gymImage2 from '../src/common/assets/images/testSplash.png';
 
 export default function Hero() {
   const theme = useTheme();

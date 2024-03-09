@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
@@ -8,7 +8,7 @@ import { ThemeProvider } from '@mui/material/styles';
 import theme from './theme';
 import LandingPage from './LandingPage';
 
-function Main() {
+export default function Main() {
   const queryClient = new QueryClient();
 
   return (
