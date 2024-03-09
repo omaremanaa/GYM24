@@ -10,7 +10,7 @@ import Typography from '@mui/material/Typography';
 import FacebookIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import TwitterIcon from '@mui/icons-material/X';
-import gymLogo from './common/assets/icons/GYM24.svg';
+import gymLogo from '../../common/assets/icons/GYM24.svg';
 import { FormattedMessage } from 'react-intl';
 
 const logoStyle = {

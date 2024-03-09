@@ -6,19 +6,19 @@ import Divider from '@mui/material/Divider';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { IntlProvider } from 'react-intl';
 
-import MenuBar from './MenuBar';
-import Home from './Home';
-import Advantages from './Advantages';
-import Coaches from './Coaches';
-import FAQ from './FAQ';
-import Footer from './Footer';
+import MenuBar from './views/MenuBar';
+import Home from './views/Home';
+import Advantages from './views/Advantages';
+import Coaches from './views/Coaches';
+import FAQ from './views/FAQ';
+import Footer from './views/Footer';
 import getLPTheme from './getLPTheme';
 import gymImage from '../src/common/assets/images/gym.jpg';
 import translations from './common/translations';
 import Pricing from './Pricing';
 import { useMutation, useQuery } from '@tanstack/react-query';
 
-export default function LandingPage() {
+export default function App() {
   const LPtheme = createTheme(getLPTheme('dark'));
   const currentLanguageLocalStorage = localStorage.getItem('locale') ?? 'en';
 

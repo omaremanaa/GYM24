@@ -6,12 +6,12 @@ import Typography from '@mui/material/Typography';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import { Box, CardContent, CardMedia, Grow, IconButton } from '@mui/material';
-import { coaches } from './common/constants';
+import { coaches } from '../../common/constants';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import XIcon from '@mui/icons-material/X';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 
-import CustomizedDialogs from './common/components/Dialog';
+import CustomizedDialogs from '../../common/components/Dialog';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/styles';
 import { FormattedMessage, useIntl } from 'react-intl';

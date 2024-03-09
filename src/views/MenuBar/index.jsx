@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
+import { FormattedMessage } from 'react-intl';
 
 import Box from '@mui/material/Box';
 import AppBar from '@mui/material/AppBar';
@@ -8,10 +9,9 @@ import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import MenuItem from '@mui/material/MenuItem';
 import MenuIcon from '@mui/icons-material/Menu';
-
-import gymLogo from './common/assets/icons/GYM24.svg';
 import { Button, Drawer } from '@mui/material';
-import { FormattedMessage } from 'react-intl';
+
+import gymLogo from '../../common/assets/icons/GYM24.svg';
 
 const logoStyle = {
   marginLeft: '2%',

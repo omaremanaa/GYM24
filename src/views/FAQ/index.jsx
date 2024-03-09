@@ -5,7 +5,7 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
-import { faq } from './common/constants';
+import { faq } from '../../common/constants';
 
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { FormattedMessage } from 'react-intl';

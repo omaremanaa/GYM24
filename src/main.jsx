@@ -6,7 +6,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ThemeProvider } from '@mui/material/styles';
 
 import theme from './theme';
-import LandingPage from './LandingPage';
+import App from './App';
 
 export default function Main() {
   const queryClient = new QueryClient();
@@ -17,7 +17,7 @@ export default function Main() {
         <ReactQueryDevtools />
       </>
       <ThemeProvider theme={theme}>
-        <LandingPage />
+        <App />
       </ThemeProvider>
     </QueryClientProvider>
   );
