@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
 import Box from '@mui/material/Box';
@@ -21,8 +21,10 @@ const logoStyle = {
 };
 
 const pages = ['Advantages', 'Trainers', 'Pricing', 'FAQ', 'Connect'];
+console.log(document.getElementsByTagName('Home'), 'Home');
 function AppAppBar({ mutate, currentLanguage }) {
   const [open, setOpen] = useState(false);
+  const [isTopPage, setIsTopPage] = useState(true);
 
   const scrollToSection = sectionId => {
     const sectionElement = document.getElementById(sectionId);
@@ -30,14 +32,25 @@ function AppAppBar({ mutate, currentLanguage }) {
       sectionElement.scrollIntoView({ behavior: 'smooth' });
     }
   };
+  const listenScrollEvent = () => {
+    if (window.scrollY < 73) {
+      return setIsTopPage(true);
+    } else if (window.scrollY > 70) {
+      return setIsTopPage(false);
+    }
+  };
+  useEffect(() => {
+    window.addEventListener('scroll', listenScrollEvent);
 
+    return () => window.removeEventListener('scroll', listenScrollEvent);
+  }, []);
   return (
     <div>
       <AppBar
         dir="ltr"
         sx={{
           boxShadow: 0,
-          bgcolor: 'transparent',
+          bgcolor: isTopPage ? 'transparent' : 'black',
         }}
       >
         <Container maxWidth="lg">
