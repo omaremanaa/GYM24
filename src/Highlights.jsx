@@ -50,7 +50,9 @@ const items = [
 ];
 
 export default function Highlights() {
-  const enLocale = localStorage.getItem('locale') === 'en';
+  const enLocale = localStorage.getItem('locale')
+    ? localStorage.getItem('locale') === 'en'
+    : true;
   return (
     <Box
       dir={enLocale ? 'ltr' : 'rtl'}

@@ -12,7 +12,9 @@ import { FormattedMessage } from 'react-intl';
 
 export default function FAQ() {
   const [expanded, setExpanded] = React.useState(false);
-  const enLocale = localStorage.getItem('locale') === 'en';
+  const enLocale = localStorage.getItem('locale')
+    ? localStorage.getItem('locale') === 'en'
+    : true;
 
   const handleChange = panel => (event, isExpanded) => {
     console.log(event, 'event');

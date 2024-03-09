@@ -106,7 +106,9 @@ const tiers = [
 ];
 
 export default function Pricing() {
-  const enLocale = localStorage.getItem('locale') === 'en';
+  const enLocale = localStorage.getItem('locale')
+    ? localStorage.getItem('locale') === 'en'
+    : true;
 
   return (
     <Container

@@ -29,7 +29,9 @@ export default function Features() {
   const small = useMediaQuery(theme.breakpoints.up('sm'));
   const xsmall = useMediaQuery(theme.breakpoints.up('xs'));
   const medium = useMediaQuery(theme.breakpoints.up('md'));
-  const enLocale = localStorage.getItem('locale') === 'en';
+  const enLocale = localStorage.getItem('locale')
+    ? localStorage.getItem('locale') === 'en'
+    : true;
 
   const coachesSeparated = [
     ...coaches.slice(0 + currentPage, limit + currentPage),
